@@ -64,6 +64,7 @@ export default {
     }
   },
   created() {
+    console.log(this.BASE_ADDR)
     this.fetchData()
   },
   methods: {

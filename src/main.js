@@ -9,6 +9,7 @@ import locale from 'element-ui/lib/locale/lang/en' // lang i18n
 import '@/styles/index.scss' // global css
 
 import App from './App'
+import axios from 'axios'
 import store from './store'
 import router from './router'
 
@@ -32,10 +33,34 @@ if (process.env.NODE_ENV === 'production') {
 Vue.use(ElementUI, { locale })
 
 Vue.config.productionTip = false
+Vue.prototype.$axios = axios
 
-new Vue({
-  el: '#app',
-  router,
-  store,
-  render: h => h(App)
-})
+function getServerConfig() {
+  return new Promise((resolve, reject) => {
+    axios.get('./serverConfig.json').then((result) => {
+      console.log(result) // 看打印出来的结果
+      const config = result.data
+      for (const key in config) {
+        Vue.prototype[key] = config[key]
+      }
+      // 验证是否已经把属性挂在了Vue上
+      console.log(Vue.prototype.BASE_ADDR)
+      resolve()
+    }).catch((error) => {
+      console.log(error)
+      reject()
+    })
+  })
+}
+
+async function init() {
+  await getServerConfig()
+  axios.defaults.baseURL = Vue.prototype.BASE_API
+  new Vue({
+    router,
+    store,
+    render: h => h(App)
+  }).$mount('#app')
+}
+
+init()
