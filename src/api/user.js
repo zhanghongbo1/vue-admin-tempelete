@@ -2,17 +2,20 @@ import request from '@/utils/request'
 
 export function login(data) {
   return request({
-    url: '/user/login',
+    url: '/work/login',
     method: 'post',
     data
   })
 }
 
-export function getInfo(token) {
+export function getInfo(data) {
   return request({
     url: '/user/info',
-    method: 'get',
-    params: { token }
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    },
+    data
   })
 }
 
