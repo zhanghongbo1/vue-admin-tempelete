@@ -108,3 +108,22 @@ export function param2Obj(url) {
       '"}'
   )
 }
+
+
+export function getCurretTime() {
+  var now = new Date();
+  var year = now.getFullYear(); //得到年份
+  var month = now.getMonth();//得到月份
+  var date = now.getDate();//得到日期
+  var day = now.getDay();//得到周几
+  var hour = now.getHours();//得到小时
+  var week;
+  month = month + 1;
+  if (month < 10) month = "0" + month;
+  if (date < 10) date = "0" + date;
+  if (hour < 10) hour = "0" + hour;
+  var time = "";
+  time = year + "年" + month + "月" + date + "日" + " " + hour 
+  //当前日期赋值给当前日期输入框中（jQuery easyUI）
+  return time
+}

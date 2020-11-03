@@ -46,34 +46,78 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
+    redirect: '/index',
     children: [{
-      path: 'dashboard',
-      name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      path: 'index',
+      name: 'index',
+      component: () => import('@/views/home/index'),
+      meta: { title: '首页', icon: 'home' }
     }]
   },
 
   {
-    path: '/example',
+    path: '/book',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: '首页', icon: 'example' },
+    redirect: '/book/up',
+    name: 'Book',
+    meta: { title: '书本管理', icon: 'book' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: '表', icon: 'table' }
+        path: 'up',
+        name: 'up',
+        component: () => import('@/views/up/index'),
+        meta: { title: '书本上下架', icon: 'up' }
       },
       {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: '树', icon: 'tree' }
+        path: 'manage',
+        name: 'manage',
+        component: () => import('@/views/manage/index'),
+        meta: { title: '书本种类管理', icon: 'man' }
       }
+    ]
+  },
+  {
+    path: '/user',
+    component: Layout,
+    redirect: '/user/manage',
+    name: 'user',
+    meta: { title: '用户管理', icon: 'user' },
+    children: [
+      {
+        path: 'manage',
+        name: 'manage1',
+        component: () => import('@/views/user/index'),
+        meta: { title: '用户信息管理', icon: 'user' }
+      }
+     
+    ]
+  },
+  {
+    path: '/order',
+    component: Layout,
+    redirect: '/order/manage',
+    name: 'user',
+    meta: { title: '订单管理', icon: 'order' },
+    children: [
+      {
+        path: 'manage',
+        name: 'manage2',
+        component: () => import('@/views/order/index'),
+        meta: { title: '订单管理', icon: 'order' }
+      },
+      {
+        path: 'detail',
+        name: 'detail',
+        component: () => import('@/views/order/detail'),
+        // meta: { title: '订单管理', icon: 'orderr' }
+      },
+      {
+        path: 'ce',
+        name: 'ce',
+        component: () => import('@/views/List'),
+        meta: { title: '测试', icon: 'orderr' }
+      },
+     
     ]
   },
 
