@@ -3,9 +3,12 @@
     <router-view />
   </div>
 </template>
-
+sv
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  mounted() {
+    alert(1)
+  },
 }
 </script>
