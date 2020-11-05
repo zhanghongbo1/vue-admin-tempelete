@@ -3,7 +3,7 @@
     <router-view />
   </div>
 </template>
-sv
+
 <script>
 export default {
   name: 'App',
