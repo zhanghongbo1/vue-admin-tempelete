@@ -30,3 +30,19 @@ export function seacrchBook(data) {
     data
   })
 }
+
+export function getDeail(data) {
+  return request({
+    url: '/getDeail',
+    method: 'post',
+    data
+  })
+}
+
+export function recompose(data) {
+  return request({
+    url: '/upDateBook',
+    method: 'post',
+    data
+  })
+}

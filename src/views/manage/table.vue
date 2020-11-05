@@ -8,13 +8,13 @@
       default-expand-all
       :tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
     >
-      <el-table-column prop="type" label="类型"> </el-table-column>
-      <el-table-column prop="name" label="书名"> </el-table-column>
-      <el-table-column prop="oldprice" label="原价"> </el-table-column>
-      <el-table-column prop="price" label="实际价格"> </el-table-column>
-      <el-table-column prop="state" label="描述"> </el-table-column>
-      <el-table-column prop="createtime" label="创建时间"> </el-table-column>
-      <el-table-column fixed="right" label="操作" width="100">
+      <el-table-column prop="type" label="类型" align='center'> </el-table-column>
+      <el-table-column prop="name" label="书名" align='center'> </el-table-column>
+      <el-table-column prop="oldprice" label="原价" align='center'> </el-table-column>
+      <el-table-column prop="price" label="实际价格" align='center'> </el-table-column>
+      <el-table-column prop="state" label="描述" align='center'> </el-table-column>
+      <el-table-column prop="createtime" label="创建时间" align='center'> </el-table-column>
+      <el-table-column fixed="right" label="操作" width="100" align='center'>
         <template slot-scope="scope">
           <el-button
             @click=""
@@ -73,6 +73,9 @@ export default {
     handleCurrentChange (val) {
       this.page = val
       this.getTable({ page: this.page })
+    },
+    edit(val){
+      this.$router.push({path:'/book/detail',query:{id:val.id}})
     }
   },
 }

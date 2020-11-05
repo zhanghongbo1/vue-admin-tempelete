@@ -71,7 +71,7 @@ export default {
       tableData: [],
       form: {},
       page: 1,
-      total: "",
+      total: 1,
       list: [
         { key: 'type', val: '类型' },
         { key: 'name', val: '书名' },

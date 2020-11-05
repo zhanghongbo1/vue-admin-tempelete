@@ -73,7 +73,13 @@ export const constantRoutes = [
         name: 'manage',
         component: () => import('@/views/manage/index'),
         meta: { title: '书本种类管理', icon: 'man' }
-      }
+      },
+      {
+        path: 'detail',
+        name: 'detail',
+        component: () => import('@/views/manage/detail'),
+      },
+
     ]
   },
   {
