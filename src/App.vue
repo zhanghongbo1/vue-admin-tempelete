@@ -8,7 +8,7 @@
 export default {
   name: 'App',
   mounted() {
-    
+    //cc
     console.log('aaaa')
     alert(1)
   },
