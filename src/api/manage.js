@@ -12,7 +12,7 @@ export function addTypes(data) {
 }
 
 /**
- * 
+ * @param
  * @param {*获取所有类型} data 
  */
 export function getTypes(data) {
